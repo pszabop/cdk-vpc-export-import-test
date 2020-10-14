@@ -1,0 +1,1532 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+Object {
+  "Outputs": Object {
+    "dynamoTableArn": Object {
+      "Export": Object {
+        "Name": "dynamoTableArn",
+      },
+      "Value": Object {
+        "Fn::GetAtt": Array [
+          "dynamoTableA1BCE036",
+          "Arn",
+        ],
+      },
+    },
+  },
+  "Resources": Object {
+    "dynamoTableA1BCE036": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "itemId",
+            "AttributeType": "S",
+          },
+        ],
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "itemId",
+            "KeyType": "HASH",
+          },
+        ],
+        "ProvisionedThroughput": Object {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5,
+        },
+        "TableName": "items",
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Delete",
+    },
+  },
+}
+`;
+
+exports[`Snapshot 2`] = `
+Object {
+  "Outputs": Object {
+    "testVpctestVpcavailabilityZones": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-availabilityZones",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            Object {
+              "Fn::Select": Array [
+                0,
+                Object {
+                  "Fn::GetAZs": "",
+                },
+              ],
+            },
+            ",",
+            Object {
+              "Fn::Select": Array [
+                1,
+                Object {
+                  "Fn::GetAZs": "",
+                },
+              ],
+            },
+          ],
+        ],
+      },
+    },
+    "testVpctestVpcisolatedRouteTableIds": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-isolatedRouteTableIds",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            Object {
+              "Ref": "testVpcisolatedSubnet1RouteTable024A87DA",
+            },
+            ",",
+            Object {
+              "Ref": "testVpcisolatedSubnet2RouteTable91503A40",
+            },
+          ],
+        ],
+      },
+    },
+    "testVpctestVpcisolatedSubnets": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-isolatedSubnets",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            Object {
+              "Ref": "testVpcisolatedSubnet1Subnet8954A677",
+            },
+            ",",
+            Object {
+              "Ref": "testVpcisolatedSubnet2Subnet5402C85D",
+            },
+          ],
+        ],
+      },
+    },
+    "testVpctestVpcprivateRouteTableIds": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-privateRouteTableIds",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            Object {
+              "Ref": "testVpcprivateSubnet1RouteTable9E85C1BE",
+            },
+            ",",
+            Object {
+              "Ref": "testVpcprivateSubnet2RouteTableD02911C2",
+            },
+          ],
+        ],
+      },
+    },
+    "testVpctestVpcprivateSubnets": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-privateSubnets",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            Object {
+              "Ref": "testVpcprivateSubnet1Subnet57A92184",
+            },
+            ",",
+            Object {
+              "Ref": "testVpcprivateSubnet2SubnetB7B5DCC7",
+            },
+          ],
+        ],
+      },
+    },
+    "testVpctestVpcpublicRouteTableIds": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-publicRouteTableIds",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            Object {
+              "Ref": "testVpcpublicSubnet1RouteTableA92BEDE8",
+            },
+            ",",
+            Object {
+              "Ref": "testVpcpublicSubnet2RouteTable5620AB76",
+            },
+          ],
+        ],
+      },
+    },
+    "testVpctestVpcpublicSubnets": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-publicSubnets",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            Object {
+              "Ref": "testVpcpublicSubnet1Subnet1DED695E",
+            },
+            ",",
+            Object {
+              "Ref": "testVpcpublicSubnet2Subnet8A5922AE",
+            },
+          ],
+        ],
+      },
+    },
+    "testVpctestVpcvpcId": Object {
+      "Export": Object {
+        "Name": "testVpc-testVpc-vpcId",
+      },
+      "Value": Object {
+        "Ref": "testVpcCB3A84F3",
+      },
+    },
+  },
+  "Resources": Object {
+    "testVpcCB3A84F3": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "testVpcIGW8765943D": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "testVpcVPCGWD6E219A3": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "testVpcIGW8765943D",
+        },
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "testVpcisolatedSubnet1RouteTable024A87DA": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/isolatedSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "testVpcisolatedSubnet1RouteTableAssociationF1704DC2": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "testVpcisolatedSubnet1RouteTable024A87DA",
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcisolatedSubnet1Subnet8954A677",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "testVpcisolatedSubnet1Subnet8954A677": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.0.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "isolated",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/isolatedSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "testVpcisolatedSubnet2RouteTable91503A40": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/isolatedSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "testVpcisolatedSubnet2RouteTableAssociation581D3C71": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "testVpcisolatedSubnet2RouteTable91503A40",
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcisolatedSubnet2Subnet5402C85D",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "testVpcisolatedSubnet2Subnet5402C85D": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.1.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "isolated",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/isolatedSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "testVpcprivateSubnet1DefaultRoute5B5BBC62": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "testVpcpublicSubnet1NATGateway091FC1F0",
+        },
+        "RouteTableId": Object {
+          "Ref": "testVpcprivateSubnet1RouteTable9E85C1BE",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "testVpcprivateSubnet1RouteTable9E85C1BE": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/privateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "testVpcprivateSubnet1RouteTableAssociation824288FC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "testVpcprivateSubnet1RouteTable9E85C1BE",
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcprivateSubnet1Subnet57A92184",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "testVpcprivateSubnet1Subnet57A92184": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.2.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/privateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "testVpcprivateSubnet2DefaultRouteF84B2517": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "testVpcpublicSubnet2NATGatewayAE707CA3",
+        },
+        "RouteTableId": Object {
+          "Ref": "testVpcprivateSubnet2RouteTableD02911C2",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "testVpcprivateSubnet2RouteTableAssociationFF59F07C": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "testVpcprivateSubnet2RouteTableD02911C2",
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcprivateSubnet2SubnetB7B5DCC7",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "testVpcprivateSubnet2RouteTableD02911C2": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/privateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "testVpcprivateSubnet2SubnetB7B5DCC7": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.3.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/privateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "testVpcpublicSubnet1DefaultRoute2568ED69": Object {
+      "DependsOn": Array [
+        "testVpcVPCGWD6E219A3",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "testVpcIGW8765943D",
+        },
+        "RouteTableId": Object {
+          "Ref": "testVpcpublicSubnet1RouteTableA92BEDE8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "testVpcpublicSubnet1EIPCFD44F97": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "testVpcpublicSubnet1NATGateway091FC1F0": Object {
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "testVpcpublicSubnet1EIPCFD44F97",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcpublicSubnet1Subnet1DED695E",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "testVpcpublicSubnet1RouteTableA92BEDE8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "testVpcpublicSubnet1RouteTableAssociation39286FFF": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "testVpcpublicSubnet1RouteTableA92BEDE8",
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcpublicSubnet1Subnet1DED695E",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "testVpcpublicSubnet1Subnet1DED695E": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            0,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.4.0/24",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "testVpcpublicSubnet2DefaultRoute11C518BE": Object {
+      "DependsOn": Array [
+        "testVpcVPCGWD6E219A3",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "testVpcIGW8765943D",
+        },
+        "RouteTableId": Object {
+          "Ref": "testVpcpublicSubnet2RouteTable5620AB76",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "testVpcpublicSubnet2EIPE46BA58A": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "testVpcpublicSubnet2NATGatewayAE707CA3": Object {
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "testVpcpublicSubnet2EIPE46BA58A",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcpublicSubnet2Subnet8A5922AE",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "testVpcpublicSubnet2RouteTable5620AB76": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "testVpcpublicSubnet2RouteTableAssociationAE36E690": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "testVpcpublicSubnet2RouteTable5620AB76",
+        },
+        "SubnetId": Object {
+          "Ref": "testVpcpublicSubnet2Subnet8A5922AE",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "testVpcpublicSubnet2Subnet8A5922AE": Object {
+      "Properties": Object {
+        "AvailabilityZone": Object {
+          "Fn::Select": Array [
+            1,
+            Object {
+              "Fn::GetAZs": "",
+            },
+          ],
+        },
+        "CidrBlock": "10.0.5.0/24",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "testVpc/testVpc/publicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "testVpcCB3A84F3",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+  },
+}
+`;
+
+exports[`Snapshot 3`] = `
+Object {
+  "Outputs": Object {
+    "getLambdaArn": Object {
+      "Value": Object {
+        "Fn::GetAtt": Array [
+          "getDbLambdaE9D230A4",
+          "Arn",
+        ],
+      },
+    },
+    "postLambdaArn": Object {
+      "Value": Object {
+        "Fn::GetAtt": Array [
+          "postDbLambda7C7F2665",
+          "Arn",
+        ],
+      },
+    },
+    "testApiEndpointC9D07ADA": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "testApiD6ECAB50",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "testApiDeploymentStageprodCE051BE8",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+    "testApiGatewayInvokeUrl": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "testApiD6ECAB50",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "testApiDeploymentStageprodCE051BE8",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6ArtifactHashA538ED3D": Object {
+      "Description": "Artifact hash for asset \\"ab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6\\"",
+      "Type": "String",
+    },
+    "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3Bucket66F4195E": Object {
+      "Description": "S3 bucket for asset \\"ab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6\\"",
+      "Type": "String",
+    },
+    "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3VersionKey94D02D3B": Object {
+      "Description": "S3 key for asset version \\"ab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "getDbLambdaE9D230A4": Object {
+      "DependsOn": Array [
+        "getDbLambdaServiceRoleDefaultPolicy596D9BD6",
+        "getDbLambdaServiceRoleE4434BC5",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3Bucket66F4195E",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3VersionKey94D02D3B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3VersionKey94D02D3B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "PRIMARY_KEY": "itemId",
+            "TABLE_NAME": Object {
+              "Fn::Select": Array [
+                1,
+                Object {
+                  "Fn::Split": Array [
+                    "/",
+                    Object {
+                      "Fn::Select": Array [
+                        5,
+                        Object {
+                          "Fn::Split": Array [
+                            ":",
+                            Object {
+                              "Fn::ImportValue": "dynamoTableArn",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+        "Handler": "get-db.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "getDbLambdaServiceRoleE4434BC5",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+        "VpcConfig": Object {
+          "SecurityGroupIds": Array [
+            Object {
+              "Fn::GetAtt": Array [
+                "getDbLambdaSecurityGroup43A4C1E6",
+                "GroupId",
+              ],
+            },
+          ],
+          "SubnetIds": Object {
+            "Fn::Split": Array [
+              ",",
+              Object {
+                "Fn::ImportValue": "vpcStack-testVpc-privateSubnets",
+              },
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "getDbLambdaSecurityGroup43A4C1E6": Object {
+      "Properties": Object {
+        "GroupDescription": "Automatic security group for Lambda Function ApiVpcgetDbLambda06F0AD1E",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "VpcId": Object {
+          "Fn::ImportValue": "vpcStack-testVpc-vpcId",
+        },
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+    },
+    "getDbLambdaServiceRoleDefaultPolicy596D9BD6": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::ImportValue": "dynamoTableArn",
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "getDbLambdaServiceRoleDefaultPolicy596D9BD6",
+        "Roles": Array [
+          Object {
+            "Ref": "getDbLambdaServiceRoleE4434BC5",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "getDbLambdaServiceRoleE4434BC5": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "postDbLambda7C7F2665": Object {
+      "DependsOn": Array [
+        "postDbLambdaServiceRoleDefaultPolicy2FD60C41",
+        "postDbLambdaServiceRole3410F027",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3Bucket66F4195E",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3VersionKey94D02D3B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersab232fa5c2f6b187b3e1911c5636e739d52c816f432108f39f687c37b3a04ae6S3VersionKey94D02D3B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "PRIMARY_KEY": "itemId",
+            "TABLE_NAME": Object {
+              "Fn::Select": Array [
+                1,
+                Object {
+                  "Fn::Split": Array [
+                    "/",
+                    Object {
+                      "Fn::Select": Array [
+                        5,
+                        Object {
+                          "Fn::Split": Array [
+                            ":",
+                            Object {
+                              "Fn::ImportValue": "dynamoTableArn",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+        "Handler": "post-db.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "postDbLambdaServiceRole3410F027",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+        "VpcConfig": Object {
+          "SecurityGroupIds": Array [
+            Object {
+              "Fn::GetAtt": Array [
+                "postDbLambdaSecurityGroup25AAA613",
+                "GroupId",
+              ],
+            },
+          ],
+          "SubnetIds": Object {
+            "Fn::Split": Array [
+              ",",
+              Object {
+                "Fn::ImportValue": "vpcStack-testVpc-privateSubnets",
+              },
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "postDbLambdaSecurityGroup25AAA613": Object {
+      "Properties": Object {
+        "GroupDescription": "Automatic security group for Lambda Function ApiVpcpostDbLambdaA0B3F279",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "VpcId": Object {
+          "Fn::ImportValue": "vpcStack-testVpc-vpcId",
+        },
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+    },
+    "postDbLambdaServiceRole3410F027": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "postDbLambdaServiceRoleDefaultPolicy2FD60C41": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::ImportValue": "dynamoTableArn",
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "postDbLambdaServiceRoleDefaultPolicy2FD60C41",
+        "Roles": Array [
+          Object {
+            "Ref": "postDbLambdaServiceRole3410F027",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "testApiAccountA6723CBB": Object {
+      "DependsOn": Array [
+        "testApiD6ECAB50",
+      ],
+      "Properties": Object {
+        "CloudWatchRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "testApiCloudWatchRole8A11639C",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+    },
+    "testApiCloudWatchRole8A11639C": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "testApiD6ECAB50": Object {
+      "Properties": Object {
+        "Name": "Network Test Service",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "testApiDeployment3727A0B918be2e1538dd6c48ae2502ced14cd0f7": Object {
+      "DependsOn": Array [
+        "testApidbidGET0EEA4A82",
+        "testApidbidPOST8D3DA30C",
+        "testApidbid20AB51F2",
+        "testApidb625007C1",
+      ],
+      "Properties": Object {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": Object {
+          "Ref": "testApiD6ECAB50",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "testApiDeploymentStageprodCE051BE8": Object {
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "testApiDeployment3727A0B918be2e1538dd6c48ae2502ced14cd0f7",
+        },
+        "RestApiId": Object {
+          "Ref": "testApiD6ECAB50",
+        },
+        "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "testApidb625007C1": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "testApiD6ECAB50",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "db",
+        "RestApiId": Object {
+          "Ref": "testApiD6ECAB50",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testApidbid20AB51F2": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Ref": "testApidb625007C1",
+        },
+        "PathPart": "{id}",
+        "RestApiId": Object {
+          "Ref": "testApiD6ECAB50",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "testApidbidGET0EEA4A82": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "getDbLambdaE9D230A4",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "testApidbid20AB51F2",
+        },
+        "RestApiId": Object {
+          "Ref": "testApiD6ECAB50",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testApidbidGETApiPermissionApiVpctestApiA6B46DB5GETdbid5DEA4FCA": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "getDbLambdaE9D230A4",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "testApiD6ECAB50",
+              },
+              "/",
+              Object {
+                "Ref": "testApiDeploymentStageprodCE051BE8",
+              },
+              "/GET/db/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testApidbidGETApiPermissionTestApiVpctestApiA6B46DB5GETdbid4D01E2A9": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "getDbLambdaE9D230A4",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "testApiD6ECAB50",
+              },
+              "/test-invoke-stage/GET/db/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testApidbidPOST8D3DA30C": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "postDbLambda7C7F2665",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "testApidbid20AB51F2",
+        },
+        "RestApiId": Object {
+          "Ref": "testApiD6ECAB50",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "testApidbidPOSTApiPermissionApiVpctestApiA6B46DB5POSTdbid15F38EBA": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "postDbLambda7C7F2665",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "testApiD6ECAB50",
+              },
+              "/",
+              Object {
+                "Ref": "testApiDeploymentStageprodCE051BE8",
+              },
+              "/POST/db/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "testApidbidPOSTApiPermissionTestApiVpctestApiA6B46DB5POSTdbid255B2B4D": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "postDbLambda7C7F2665",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "testApiD6ECAB50",
+              },
+              "/test-invoke-stage/POST/db/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+  },
+}
+`;

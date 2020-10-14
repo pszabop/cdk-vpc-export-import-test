@@ -1,0 +1,14 @@
+{
+  "name": "lambdasrc",
+  "version": "1.0.0",
+  "description": "lambda code for testing access to AWS services",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "paulszabopmw@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^8.3.1"
+  }
+}
